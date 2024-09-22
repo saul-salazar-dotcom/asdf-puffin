@@ -19,10 +19,11 @@ if test -f "$release_file.zip";
 then
     #  Extract contents of zip file into the download directory
     unzip -p "$release_file.zip" | tar -xvf - -C "$ASDF_DOWNLOAD_PATH" || fail "Could not extract $release_file"
+    # Remove the zip file since we don't need to keep it
+    rm "$release_file.zip"
 else
     # Extract contents of .tar.gz file into the download directory
     tar -xvzf "$release_file.tar.gz" -C "$ASDF_DOWNLOAD_PATH" || fail "Could not extract $release_file"
+    # Remove the zip file since we don't need to keep it
+    rm "$release_file.tar.gz"
 fi
-
-# Remove the zip file since we don't need to keep it
-rm "$release_file"
