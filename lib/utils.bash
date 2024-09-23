@@ -2,9 +2,9 @@
 
 set -euo pipefail
 
-GH_REPO="https://github.com/simonmichael/hledger"
-TOOL_NAME="hledger"
-TOOL_TEST="hledger --version"
+GH_REPO="https://github.com/siddhantac/puffin"
+TOOL_NAME="puffin"
+TOOL_TEST="puffin --version"
 
 fail() {
 	echo -e "asdf-$TOOL_NAME: $*"
@@ -40,7 +40,7 @@ download_release() {
 	processor=$(get_machine_processor)
 	os=$(get_machine_os)
 
-	url="$GH_REPO/releases/download/${version}/${TOOL_NAME}-${os}-${processor}"
+	url="$GH_REPO/releases/download/${version}/${TOOL_NAME}_${os}_${processor}"
 
 	echo "* Downloading $TOOL_NAME release $version..."
 	curl "${curl_opts[@]}" -o "$filename.tar.gz" -C - "$url.tar.gz" || curl "${curl_opts[@]}" -o "$filename.zip" -C - "$url.zip" || fail "Could not download $url"
