@@ -85,7 +85,7 @@ get_machine_os() {
 get_machine_processor() {
 	KERNEL=$(uname -m)
 	case "${KERNEL}" in
-	x86_64*) echo 'x86_x64' ;;
+	x86_64*) echo 'x86_64' ;;
 	i386*) echo 'i386' ;;
 	arm64*) echo 'arm64' ;;
 	*)
