@@ -72,8 +72,8 @@ install_version() {
 
 get_machine_os() {
 	case "${OSTYPE}" in
-	darwin*) echo "mac" ;;
-	linux*) echo "linux" ;;
+	darwin*) echo "Darwin" ;;
+	linux*) echo "Linux" ;;
 	*)
 		# dump error to stderr
 		echo "asdf-$TOOL_NAME: $OSTYPE is not supported" >&2
@@ -85,7 +85,9 @@ get_machine_os() {
 get_machine_processor() {
 	KERNEL=$(uname -m)
 	case "${KERNEL}" in
-	x86_64*) echo 'x64' ;;
+	x86_64*) echo 'x86_x64' ;;
+	i386*) echo 'i386' ;;
+	arm64*) echo 'arm64' ;;
 	*)
 		# dump error to stderr
 		echo "asdf-$TOOL_NAME: $KERNEL is not supported" >&2
